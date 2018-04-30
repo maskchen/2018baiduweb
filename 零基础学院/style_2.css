@@ -1,0 +1,33 @@
+html {
+    min-width: 750px;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+ul h4 {
+    margin-bottom: 0;
+}
+
+ul p {
+    margin: 0;
+}
+
+#wrap {
+    overflow: hidden;
+}
+
+header {
+    float: left;
+    margin-bottom: -1500px;
+    padding: 50px 50px 1500px;
+    color: #fff;
+    background-color: #4a76f8;
+}
+
+#main {
+    overflow: hidden;
+    padding-left: 30px;
+}
