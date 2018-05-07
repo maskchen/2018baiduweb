@@ -78,10 +78,16 @@ header a {
     background: rgba(255, 255, 255, 0.8);
 }
 
+nav {
+    border-bottom: 1px solid #cccccc;
+}
+
 nav ul {
     overflow: hidden;
+    position: relative;
+    top: 1px;
     width: 960px;
-    margin: 30px auto -12px;
+    margin: 30px auto 0;
 }
 
 
@@ -93,35 +99,25 @@ nav a {
     display: inline-block;
     width: 100px;
     height: 40px;
-    padding-bottom: 10px;
     line-height: 40px;
     border: 1px solid #cccccc;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
     text-decoration: none;
     text-align: center;
     background: #ebebeb;
 }
 
 nav .active {
-    position: relative;
-    z-index: 1;
+    border-bottom: 1px solid #fff;
     background: #fff;
-}
-
-.bottom-line {
-    position: relative;
-    border-bottom: 1px solid #cccccc;
 }
 
 .main {
     display: flex;
     flex-wrap: wrap;
-    position: relative;
-    z-index: 2;
     width: 960px;
     margin: 0 auto;
     padding: 20px 0;
-    background: #fff;
 }
 
 section {
