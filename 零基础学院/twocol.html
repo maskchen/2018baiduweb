@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>两栏布局汇总</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <meta name="renderer" content="webkit"/>
+        <link rel="stylesheet" type="text/css" href="twocol.css"/>
+    </head>
+
+    <body>
+        <section>
+            <h2>两栏布局，左侧占30%宽度，右侧占70%宽度</h3>
+            <ul>
+                <li>
+                    <h3>1. float方法1</h3>
+                    <div class="wrap num_1">
+                        <div class="extra"></div>
+                        <div class="main"></div>
+                    </div>
+                </li>
+                <li>
+                    <!--这个方法如果绝对定位元素的高度大于main元素的高度，将会溢出，不好-->
+                    <h3>2. absolute方法</h3>
+                    <div class="wrap num_2">
+                        <div class="main"></div>
+                        <div class="extra"></div>                        
+                    </div>
+                </li>
+                <li>
+                    <h3>3. Flexbox方法</h3>
+                    <div class="wrap num_3">
+                        <div class="main"></div>
+                        <div class="extra"></div>
+                    </div>
+                </li>
+                <li>
+                    <h3>4. inline-block方法</h3>
+                    <div class="wrap num_4">
+                        <div class="extra"></div>
+                        <div class="main"></div>
+                    </div>
+                </li>
+                <li>
+                    <h3>5. float方法2</h3>
+                    <div class="wrap num_5">
+                        <div class="extra"></div>
+                        <div class="main"></div>
+                    </div>
+                </li>
+                <li>
+                    <h3>6. BFC方法</h3>
+                    <div class="wrap num_6">
+                        <div class="extra"></div>
+                        <div class="main"></div>
+                    </div>                   
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>左侧固定，右侧自适应</h2>
+            <ul>
+                <li>
+                    <h3>i. float方法1</h3>
+                    <div class="num_7">
+                        <div class="extra"></div>
+                        <div class="main"></div>
+                    </div>
+                </li>
+                <li>
+                    <h3>ii. float方法2</h3>
+                    <div class="num_8">
+                        <div class="extra"></div>
+                        <div class="main"></div>
+                    </div>
+                </li>
+                <li>
+                    <h3>iii. float方法3</h3>
+                    <div class="num_9">
+                        <div class="extra"></div>
+                        <div class="main"></div>
+                    </div>
+                </li>
+                <li>
+                    <h3>iv. position方法</h3>
+                    <div class="num_10">
+                        <div class="main"></div>
+                        <div class="extra"></div>
+                    </div>
+                </li>
+                <li>
+                     <h3>v. flex方法</h3>
+                    <div class="num_11">
+                        <div class="main"></div>
+                        <div class="extra"></div>
+                    </div>
+                </li>
+                <li>
+                    <h3>vi. table-cell方法</h3>
+                    <div class="num_12">
+                       <div class="extra"></div>
+                       <div class="main"></div>
+                   </div>
+                </li>
+                <li>
+                    <h3>vii. inline-blcok方法</h3>
+                    <div class="num_13">
+                       <div class="extra"></div>
+                       <div class="main"></div>
+                   </div>
+                </li>                                                                   
+            </ul>
+        </section>
+
+        <section>
+            <h2>左侧自适应，右侧固定</h2>
+            <ul>
+                <li>
+                    <h3>1. inline-blcok方法</h3>
+                    <div class="num_14">
+                        <div class="main"></div>
+                        <div class="extra"></div>
+                    </div>
+                </li>
+                <li>
+                    <h3>2. flex方法</h3>
+                    <div class="num_15">
+                       <div class="main"></div>
+                       <div class="extra"></div>
+                   </div>
+               </li>
+               <li>
+                    <h3>3. position方法</h3>
+                    <div class="num_16">
+                       <div class="main"></div>
+                       <div class="extra"></div>
+                   </div>
+               </li>
+               <li>
+                <h3>4. float方法1</h3>
+                    <div class="num_17">
+                       <div class="main"></div>
+                       <div class="extra"></div>
+                    </div>
+               </li>
+               <li>
+                    <h3>5. float方法2</h3>
+                    <div class="num_18">                       
+                       <div class="extra"></div>
+                       <div class="main"></div>
+                    </div>
+               </li>
+               <li>
+                    <h3>6. float方法3</h3>
+                    <div class="num_19">                       
+                       <div class="extra"></div>
+                       <div class="main"></div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </body>
+</html>

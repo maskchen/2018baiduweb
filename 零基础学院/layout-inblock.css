@@ -1,0 +1,168 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-width: 960px;
+}
+
+ul {
+    list-style: none;
+}
+
+header {
+    background: #363535;
+}
+
+header > div {
+    overflow: hidden;
+    width: 960px;
+    margin: 0 auto;
+}
+
+#logo {
+    float: left; 
+    padding: 10px 0;
+    font-size: 25px;
+    color: #fff;
+}
+
+header ul {
+    float: right;
+    padding-top: 5px;
+    font-size: 12px;
+}
+
+header ul li {
+    display: inline-block;
+}
+
+header a {
+    color: #fff;
+}
+
+.banner {
+
+    background: #66ca37;
+}
+
+.banner > div {
+    position: relative;
+    width: 960px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.banner ul {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+
+.banner li {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    margin-right: 3px;
+    border: 1px solid #000;
+    font-size: 12px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.4)
+}
+
+.banner .active {
+    padding: 6px 3px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+nav ul {
+    overflow: hidden;
+    width: 960px;
+    margin: 30px auto -12px;
+}
+
+
+nav li {
+    float: left;   
+}
+
+nav a {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    padding-bottom: 10px;
+    line-height: 40px;
+    border: 1px solid #cccccc;
+    border-radius: 15px;
+    text-decoration: none;
+    text-align: center;
+    background: #ebebeb;
+}
+
+nav .active {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+}
+
+.bottom-line {
+    position: relative;
+    border-bottom: 1px solid #cccccc;
+}
+
+.main {
+    position: relative;
+    z-index: 2;
+    width: 960px;
+    margin: 0 auto;
+    padding: 20px 0;
+    font-size: 0;
+    background: #fff;
+}
+
+section {
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0 1% 1% 0;
+    padding: 80px;
+    border: 1px solid #cccccc;
+}
+
+section p {
+    text-align: center;
+    font-size: 14px;
+}
+
+.size-1 {
+    width: 34%;
+}
+
+.size-2 {
+    width: 32.33%;
+}
+
+.size-3 {
+    width: 29%;
+}
+
+.size-4 {
+    width: 24%;
+}
+
+footer {
+    height: 100px;
+    background: rgba(58, 57, 57, 0.4)
+}
+
+footer p {
+    width: 960px;
+    margin: 0 auto;
+    padding-top: 15px;
+    text-align: center;
+    color: #fff;
+}
+
+

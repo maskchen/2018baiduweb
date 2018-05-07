@@ -1,0 +1,360 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+.wrap {
+    width: 800px;
+}
+
+h2, h3 {
+    margin: 20px;
+}
+
+.num_1 {
+    overflow: hidden;
+}
+
+.num_1 div {
+    float: left;
+    height: 200px;
+}
+
+.num_1 .extra {
+    width: 30%;
+    background: #ac4569;
+}
+
+.num_1 .main {
+    width: 70%;
+    background: #58cc41;
+}
+
+.num_2 {
+    position: relative;
+}
+
+.num_2 .extra {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30%;
+    height: 200px;
+    background: #457820;
+}
+
+.num_2 .main {
+    padding-left: 30%; 
+    height: 200px;
+    background: #de6541;
+}
+
+.num_3 {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.num_3 .extra {
+    flex-basis: 30%;
+    background: #58cc41;
+}
+
+.num_3 .main {
+    flex-basis: 70%;
+    height: 200px;
+    background: #1745c2;
+}
+
+.num_4 {
+    font-size: 0;
+}
+
+.num_4 div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.num_4 .extra {
+    width: 30%;
+    height: 200px;
+    background: #ee2146;
+}
+
+.num_4 .main {
+    width: 70%;
+    height: 200px;
+    background: #bdc737;
+}
+
+.num_5 .extra {
+    float: left;
+    width: 30%;
+    height: 200px;
+    background: #862849;
+}
+
+.num_5 .main {
+    height: 200px;
+    margin-left: 30%;
+    background: #25c3d8;
+}
+
+.num_6 {
+    overflow: hidden;
+}
+
+.num_6 .extra {
+    float: left;
+    width: 30%;
+    height: 200px;
+    background: #24145f;
+}
+
+.num_6 .main {
+    overflow: hidden;
+    height: 200px;
+    background: #17b93a;
+}
+
+.num_7 {
+    overflow: hidden;
+}
+
+.num_7 .extra {
+    float: left;
+    width: 200px;
+    height: 200px;
+    background: #25c3d8;
+}
+
+.num_7 .main {
+    float: left;
+    width: calc( 100% - 200px );
+    height: 200px;
+    background: #59067a;
+}
+
+.num_8 {
+    overflow: hidden;
+}
+
+.num_8 .extra {
+    float: left;
+    width: 200px;
+    height: 200px;
+    background: #14b143;
+}
+
+.num_8 .main {
+    padding-left: 200px;
+    height: 200px;
+    background: #390b4b;
+}
+
+.num_9 {
+    overflow: hidden;
+}
+
+.num_9 .extra {
+    float: left;
+    width: 200px;
+    height: 200px;
+    background: #6b9211;
+}
+
+.num_9 .main {
+    overflow: hidden;
+    height: 200px;
+    background: #7e113e;
+}
+
+.num_10 {
+    position: relative;
+}
+
+.num_10 .extra {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 200px;
+    background: #457820;
+}
+
+.num_10 .main {
+    margin-left: 200px;
+    height: 200px;
+    background: #c95d1f;
+}
+
+.num_11 {
+    display: flex;
+}
+
+.num_11 .main {
+    order: 1;
+    flex-grow: 1;
+    height: 200px;
+    background: #7caa10;
+}
+
+.num_11 .extra {
+    width: 200px;
+    height: 200px;
+    background: #087191;
+}
+
+.num_12 {
+    overflow: hidden;
+}
+
+.num_12 .extra {
+    float: left;
+    width: 200px;
+    height: 200px;
+    background: #2f113b;
+}
+
+.num_12 .main {
+    display: table-cell;
+    width: 9999px;
+    height: 200px;
+    background: #e0490d;
+}
+
+.num_13 {
+    font-size: 0;
+}
+
+.num_13 div {
+    display: inline-block;
+}
+
+.num_13 .extra {
+    width: 200px;
+    height: 200px;
+    background: #120b79;
+}
+
+.num_13 .main {
+    width: calc( 100% - 200px );
+    height: 200px;
+    background: #b80b0b;
+}
+
+.num_14 {
+    font-size: 0;
+}
+
+.num_14 div {
+    display: inline-block;
+}
+
+.num_14 .extra {
+    width: 200px;
+    height: 200px;
+    background: #120b79;
+}
+
+.num_14 .main {
+    width: calc( 100% - 200px );
+    height: 200px;
+    background: #b80b0b;
+}
+
+.num_15 {
+    display: flex;
+}
+
+.num_15 .main{
+    flex-grow: 1;
+    height: 200px;
+    background: #26bebe;
+}
+
+.num_15 .extra {
+    width: 200px;
+    height: 200px;
+    background: #c9bc0c;
+}
+
+.num_16 {
+    position: relative;
+}
+
+.num_16 .main {
+    margin-right: 200px;
+    height: 200px;
+    background: #c95d1f;
+}
+
+.num_16 .extra {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 200px;
+    width: 200px;
+    background: #6b9211
+}
+
+.num_17 {
+    overflow: hidden;
+}
+
+.num_17 div{
+    float: left;
+}
+
+.num_17 .main {
+    width: calc( 100% - 200px );
+    height: 200px;
+    background: #1fbec9;
+}
+
+.num_17 .extra {
+    width: 200px;
+    height: 200px;
+    background: #0cc90c;
+}
+
+.num_18 {
+    overflow: hidden;
+}
+
+.num_18 .main {
+    margin-right: 200px;
+    height: 200px;
+    background: #ad1fc9;
+}
+
+.num_18 .extra {
+    float: right;
+    width: 200px;
+    height: 200px;
+    background: #0cc945;
+}
+
+.num_19 {
+    overflow: hidden;
+}
+
+.num_19 .main {
+    overflow: hidden;
+    height: 200px;
+    background: #3e1fc9;
+}
+
+.num_19 .extra {
+    float: right;
+    width: 200px;
+    height: 200px;
+    background: #c90c0c;
+}

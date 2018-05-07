@@ -1,0 +1,351 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+h2, h3 {
+    margin: 20px;
+}
+
+section {
+    margin: 20px;
+}
+
+.num_1 {
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0 200px 0 300px;
+    min-width: 800px;
+}
+
+.num_1 div {
+    float: left;
+}
+
+.num_1 .main {
+    width: 100%;
+    height: 200px;
+    background: #dcf521;
+}
+
+.num_1 .extra {
+    position: relative;
+    left: -300px;
+    width: 300px;
+    height: 200px;
+    margin-left: -100%;
+    background: #697821;
+}
+
+.num_1 .sub {
+    width: 200px;
+    height: 200px;
+    margin-right: -200px;
+    background: #1e0fa7;
+}
+
+.num_2 {
+    overflow: hidden;
+}
+
+.num_2 > div {
+    float: left;
+}
+
+.num_2 .main-wrap {
+    width: 100%;
+}
+
+.num_2 .main {
+    height: 200px;
+    margin: 0 200px 0 300px;
+    background: #1e0fa7;
+}
+
+.num_2 .extra {
+    width: 300px;
+    height: 200px;
+    margin-left: -100%;
+    background: #697821;
+}
+
+.num_2 .sub {
+    width: 200px;
+    height: 200px;
+    margin-left: -200px;
+    background: #b81e96;
+}
+
+.num_3 {
+    overflow: hidden;
+}
+
+.num_3 > div {
+    float: left;
+}
+
+.num_3 .main {
+    box-sizing: border-box;
+    width: 100%;
+    height: 200px;
+    padding: 0 200px 0 300px;
+    background: #1e0fa7;
+}
+
+.num_3 .extra {
+    width: 300px;
+    height: 200px;
+    margin-left: -100%;
+    background: #697821;
+}
+
+.num_3 .sub {
+    width: 200px;
+    height: 200px;
+    margin-left: -200px;
+    background: #b81e96;
+}
+
+.num_4 {
+    position: relative;
+    padding: 0 200px 0 300px;
+}
+
+.num_4 .main {
+    height: 200px;
+    background: #1e0fa7;
+}
+
+.num_4 .extra {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 200px;
+    background: #697821;
+}
+
+.num_4 .sub {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 200px;
+    height: 200px;
+    background: #f70707;
+}
+
+.num_5 {
+    display: flex;
+}
+
+.num_5 .main {
+    order: 1;
+    flex-grow: 1;
+    height: 200px;
+    background: #b81e96 
+}
+
+.num_5 .extra {
+    width: 300px;
+    background: #1e0fa7;
+}
+
+.num_5 .sub {
+    order: 2;
+    width: 200px;
+    background: #f70707;
+}
+
+.num_6 {
+    font-size: 0;
+}
+
+.num_6 div {
+    display: inline-block;
+}
+
+.num_6 .main {
+    width: calc( 100% - 500px );
+    height: 200px;
+    background: #1e0fa7;
+}
+
+.num_6 .extra {
+    width: 300px;
+    height: 200px;
+    background: #b81e96;
+}
+
+.num_6 .sub {
+    width: 200px;
+    height: 200px;
+    background: #dcf521;
+}
+
+.num_7 {
+    font-size: 0;
+}
+
+.num_7 div {
+    display: inline-block;
+}
+
+.num_7 .main {
+    width: calc( 100% - 500px );
+    height: 200px;
+    margin-left: 500px;
+    background: #1e0fa7;
+}
+
+.num_7 .extra {
+    width: 300px;
+    height: 200px;
+    margin-left: -100%;
+    background: #b81e96;
+}
+
+.num_7 .sub {
+    width: 200px;
+    height: 200px;
+    background: #dcf521;
+}
+
+.num_8 {
+    display: flex;
+}
+
+.num_8 .main {
+    order: 1;
+    flex-grow: 1;
+    height: 200px;
+    background: #1e0fa7;
+}
+
+.num_8 .extra {
+    width: 300px;
+    height: 200px;
+    background: #f70707;
+}
+
+.num_8 .sub {
+    width: 200px;
+    background: #dcf521;
+}
+
+.num_9 {
+    position: relative;
+}
+
+.num_9 .main {
+    height: 200px;
+    margin-left: 500px;
+    background: #1e0fa7;
+}
+
+.num_9 .extra {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 200px;
+    background: #697821;
+}
+
+.num_9 .sub {
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: 200px;
+    height: 200px;
+    background: #dcf521;
+}
+
+.num_10 {
+    overflow: hidden;
+}
+
+.num_10 div {
+    float: right;
+}
+
+.num_10 .main {
+    width: calc( 100% - 500px );
+    height: 200px;
+    background: #1e0fa7;
+}
+
+.num_10 .sub {
+    width: 200px;
+    height: 200px;
+    background: #dcf521;
+}
+
+.num_10 .extra {
+    width: 300px;
+    height: 200px;
+    background: #06ad51;
+}
+
+.num_11 {
+    overflow: hidden;
+}
+
+.num_11 > div {
+    float: left;
+}
+
+.num_11 .main-wrap {
+    width: 100%
+}
+
+.num_11 .main {
+    margin-left: 500px;
+    height: 200px;
+    background: #1e0fa7;
+}
+
+.num_11 .extra {
+    width: 300px;
+    height: 200px;
+    margin-left: -100%;
+    background: #06ad51;
+}
+
+.num_11 .sub {
+    position: relative;
+    left: 300px;
+    width: 200px;
+    height: 200px;
+    margin-left: -100%;
+    background: #dcf521;
+}
+
+.num_12 {
+    overflow: hidden;
+}
+
+.num_12 div:not(.main) {
+    float: left;
+}
+
+.num_12 .extra {
+    width: 300px;
+    height: 200px;
+    background: #06ad51;
+}
+
+.num_12 .sub {
+    width: 200px;
+    height: 200px;
+    background: #dcf521;
+}
+
+.num_12 .main {
+    height: 200px;
+    margin-left: 500px;
+    background: #f70707;
+}
