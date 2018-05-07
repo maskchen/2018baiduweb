@@ -78,39 +78,47 @@ header a {
     background: rgba(255, 255, 255, 0.8);
 }
 
+
+nav {
+    border-bottom: 1px solid #cccccc;
+}
+
 nav ul {
-    overflow: hidden;
     width: 960px;
-    margin: 30px auto -12px;
+    margin: 30px auto 0;
+}
+
+nav ul:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    *zoom: 1;
 }
 
 
 nav li {
-    float: left;   
+    float: left;
+    
 }
 
 nav a {
     display: inline-block;
     width: 100px;
     height: 40px;
-    padding-bottom: 10px;
-    line-height: 40px;
+    margin-bottom: -1px;  
     border: 1px solid #cccccc;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
+    line-height: 40px;
     text-decoration: none;
     text-align: center;
     background: #ebebeb;
+    
 }
 
 nav .active {
-    position: relative;
-    z-index: 1;
+    border-bottom: 1px solid #fff;
     background: #fff;
-}
-
-.bottom-line {
-    position: relative;
-    border-bottom: 1px solid #cccccc;
 }
 
 .main {

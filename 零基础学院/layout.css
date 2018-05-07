@@ -83,13 +83,17 @@ nav {
 }
 
 nav ul {
-    overflow: hidden;
-    position: relative;
-    top: 1px;
     width: 960px;
     margin: 30px auto 0;
 }
 
+nav ul:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    *zoom: 1;
+}
 
 nav li {
     float: left;   
@@ -99,6 +103,7 @@ nav a {
     display: inline-block;
     width: 100px;
     height: 40px;
+    margin-bottom: -1px; 
     line-height: 40px;
     border: 1px solid #cccccc;
     border-radius: 15px 15px 0 0;
