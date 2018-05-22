@@ -1,0 +1,63 @@
+html {
+    min-width: 700px;
+    margin: 0 10px;
+}
+
+* {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+h1,
+h2,
+h4 {
+    font-size: 16px;
+}
+
+header {
+    padding: 20px 30px;
+    color: #fff;
+    background-color: #747474;
+}
+
+h2 {
+    float: left;
+    padding: 50px 30px;
+    background-color: #c9c9c9;
+}
+
+p {
+    padding-top: 16px;
+    text-indent: 1em;
+}
+
+section {
+    border: 1px solid #e6e6e6;
+    *zoom: 1;
+}
+
+section::after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+li {
+    padding-top: 16px;
+    text-indent: 1em;
+}
+
+li + li {
+    padding-top: 5px;
+}
+
+li h4,
+li p {
+    display: inline;
+}
