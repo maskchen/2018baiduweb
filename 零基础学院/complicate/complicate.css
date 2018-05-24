@@ -442,6 +442,10 @@ header h1 {
     border-bottom: 1px solid #e6e9ec;
 }
 
+.links-p .t-active {
+    box-shadow: 3px 0 0 0 #299ef5 inset;
+}
+
 .friend-wrap {
     display: inline-block;
     width: 90%;
