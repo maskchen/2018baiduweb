@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>day20-js-practice</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="renderer" content="webkit"/>
+        <style>
+            select {
+                display: none;
+            }
+
+            .show {
+                display: block;
+            }
+
+            .palette {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            }
+
+            .palette li {
+                width: 40px;
+                height: 40px;
+                border: 1px solid #000;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form>
+            <input id="name" type="text">    
+            <button id="submit-btn">Submit</button>
+        </form>
+        <br/>
+        <br/>
+
+        <label>
+            <input id="school" name="status" type="radio">
+            School
+        </label>
+        <label>                
+            <input id="company" name="status" type="radio">
+            Company
+        </label>
+        
+        <select id="school-select">        
+            <option>北京邮电大学</option>
+            <option>黑龙江大学</option>
+            <option>华中科技大学</option>
+        </select>
+        
+        <select id="company-select">        
+            <option>百度</option>
+            <option>爱奇艺</option>        
+        </select>
+        <br/>
+        <br/>
+
+        <ul class="palette">
+                <li style="background-color:crimson"></li>
+                <li style="background-color:bisque"></li>
+                <li style="background-color:blueviolet"></li>
+                <li style="background-color:coral"></li>
+                <li style="background-color:chartreuse"></li>
+                <li style="background-color:darkolivegreen"></li>
+                <li style="background-color:cyan"></li>
+                <li style="background-color:#194738"></li>        
+        </ul>    
+        <p class="color-picker"></p>
+        <br/>
+        <br/>
+
+        <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+        <button id="fade-btn">淡出</button>
+        <br/>
+        <br/>
+
+        <div id="fimg" style="width: 480px; height: 480px; background: url(erik.jpg) no-repeat; background-position: 0 0;"></div>
+        <br/>
+        <br/>
+
+
+        <script>
+            function textInput(e){
+                e.preventDefault()
+                var a = document.getElementById('name').value;
+                console.log(a);
+            }
+
+            function textInput2(e){
+                if (e.key === 'Escape'){
+                    document.getElementById('name').value = '';
+                }
+                
+            }
+
+            var a = document.getElementById('name');
+            var b = document.getElementById('submit-btn');
+            b.onclick = textInput;
+            a.onkeyup = textInput2;
+
+            //--------------task1-end-----------------------
+            
+            function showSelect(){
+                var c = document.getElementById('school');
+                var d = document.getElementById('company');
+                var e = document.getElementById('school-select');
+                var f = document.getElementById('company-select');
+                
+                if (c.checked === true){
+                    e.classList.add('show');
+                    f.classList.remove('show');
+                } else if(d.checked === true){
+                    f.classList.add('show');
+                    e.classList.remove('show');
+                }
+            }
+
+            document.getElementById('school').onclick = showSelect;
+            document.getElementById('company').onclick = showSelect;
+
+
+            //-----------------task2-end-------------------------------
+            
+            document.querySelector('.palette').onclick = function (e){
+                var ccolor = e.target.style.backgroundColor;
+                var obp = document.querySelector('.color-picker');
+                obp.innerHTML = ccolor;
+                obp.style.backgroundColor = ccolor;
+            }
+
+
+            //-------------------task3-end--------------------------------------
+
+            document.getElementById('fade-btn').onclick = toInvisible;
+
+            function toInvisible(){
+                var g = document.getElementById('fade-obj');
+                var h = document.getElementById('fade-btn');
+                var op = window.getComputedStyle(g).opacity;
+                var num1 = 1;
+                var num2 = 0;
+                if (op > 0){
+                    var t1 = setInterval(function (){
+                        h.disabled = true;
+                        num1 -= 0.1;
+                        g.style.opacity = '' + num1;
+                        if (num1 <= 0){
+                            h.disabled = false;
+                            h.innerHTML = '淡入';
+                            clearInterval(t1);
+                        }
+                    }, 300);
+                }else {
+                    var t2 = setInterval(function (){
+                        h.disabled = true;
+                        num2 += 0.1;
+                        g.style.opacity = '' + num2;
+                        if (num2 >= 1){
+                            h.disabled = false;
+                            h.innerHTML = '淡出';
+                            clearInterval(t2);
+                        }
+                    }, 300);
+                } 
+            }
+
+            //--------------------task4-end------------------------------------
+            var z = -480;
+            var framep = document.getElementById('fimg');
+            framep.onload = setInterval(function (){
+                var x = framep.style.backgroundPositionY;
+                var y = parseInt(x) + z;
+                framep.style.backgroundPositionY = y + 'px';
+                if (y === -7680){
+                    z = 480;
+                } else if (y === 0){
+                    z = -480;
+                }
+            }, 100)
+
+            
+            </script>
+    </body>
+</html>
