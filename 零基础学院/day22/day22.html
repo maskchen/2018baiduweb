@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>day22 task1,2,3</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="renderer" content="webkit"/>
+        <link rel="stylesheet" type="text/css" href=""/>
+    </head>
+
+    <body>
+        <div>
+            <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label><input id="num-a" type="text">
+            <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label><input id="num-b" type="text">
+        </div>
+        <div id="task1">
+            <button>判断当前选中的输入框输入内容是否为数字</button>
+            <button>把 A 四舍五入为 B 个小数位数的数字</button>
+            <button>当前选中数字的绝对值</button>
+            <button>对当前选中的数字进行上舍入</button>
+            <button>对当前选中的数字进行下舍入</button>
+            <button>把当前选中的数字四舍五入为最接近的整数</button>
+            <button>返回 A 和 B 中的最高值</button>
+            <button>返回 A 和 B 中的最低值</button>        
+        </div>
+        <p id="result"></p>
+        <br/>
+        <br/>
+
+        <div>
+            <label>String A:
+                <input id="radio-a2" type="radio" checked="true" name="str-obj" value="a">
+            </label>
+            <textarea id="str-a"></textarea>
+            <label>String B:
+                <input id="radio-b2" type="radio" name="str-obj" value="b">
+            </label>
+            <textarea id="str-b"></textarea>        
+            <label>Num A：<input id="num-a2" type="number" value="0"></label>
+            <label>Num B：<input id="num-b2" type="number" value="1"></label>
+        </div>
+        <div id="task2">
+            <button>获取当前选中输入的内容长度</button>
+            <button>当前选中输入中的第3个字符</button>
+            <button>把两个输入框的文字连接在一起输出（concat）</button>
+            <button>输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）</button>
+            <button>输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）</button>
+            <button>使用slice获取选中输入框内容的部分内容，参数为num-a及num-b</button>
+            <button>当前选中输入框的行数</button>
+            <button>使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
+            <button>把所选输入框中的内容全部转为大写</button>
+            <button>把所选输入框中的内容全部转为小写</button>
+            <button>把所选输入框中内容的半角空格全部去除</button>
+            <button>把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
+        </div>
+        <p id="result2"></p>
+
+        <script>
+            var result = document.getElementById('result');
+            var ra = document.getElementById('radio-a');
+            var rb = document.getElementById('radio-b');
+            var na = document.getElementById('num-a');
+            var nb = document.getElementById('num-b');
+            var buttons = document.querySelectorAll('#task1 > button');
+            function exNum(){
+                if (ra.checked){
+                    result.innerHTML = ((na.value !== '') && Number(na.value)) ? '正确数字' : '请输入数字';
+                } else if (rb.checked){
+                    result.innerHTML = ((nb.value !== '') && Number(nb.value) ) ? '正确数字' : '请输入数字';
+                } else {
+                    result.innerHTML = '请选择要转换的数字';
+                }
+            }
+            buttons[0].onclick = exNum;
+
+            function roundNum(){
+                if ((na.value !== '') && (nb.value !== '') && (+na.value) && (+nb.value)){
+                    result.innerHTML = (+na.value).toFixed(+nb.value);
+                } else {
+                    result.innerHTML = '请输入数字';
+                }
+            }
+            buttons[1].onclick = roundNum; 
+            
+            function absNum(){
+                if (ra.checked){
+                    result.innerHTML = ((na.value !== '') && Number(na.value)) ? Math.abs(+na.value) : '请输入数字';
+                } else if (rb.checked){
+                    result.innerHTML = ((nb.value !== '') && Number(nb.value) ) ? Math.abs(+nb.value) : '请输入数字';
+                } else {
+                    result.innerHTML = '请选择要转换的数字';
+                }
+            }
+            buttons[2].onclick = absNum;
+
+            function ceilN(){
+                if (ra.checked){
+                    result.innerHTML = ((na.value !== '') && Number(na.value)) ? Math.ceil(+na.value) : '请输入数字';
+                } else if (rb.checked){
+                    result.innerHTML = ((nb.value !== '') && Number(nb.value) ) ? Math.ceil(+nb.value) : '请输入数字';
+                } else {
+                    result.innerHTML = '请选择要转换的数字';
+                }
+            }
+            buttons[3].onclick = ceilN;
+
+            function floorN(){
+                if (ra.checked){
+                    result.innerHTML = ((na.value !== '') && Number(na.value)) ? Math.floor(+na.value) : '请输入数字';
+                } else if (rb.checked){
+                    result.innerHTML = ((nb.value !== '') && Number(nb.value) ) ? Math.floor(+nb.value) : '请输入数字';
+                } else {
+                    result.innerHTML = '请选择要转换的数字';
+                }
+            }
+            buttons[4].onclick = floorN;
+
+            function rN(){
+                if (ra.checked){
+                    result.innerHTML = ((na.value !== '') && Number(na.value)) ? Math.round(+na.value) : '请输入数字';
+                } else if (rb.checked){
+                    result.innerHTML = ((nb.value !== '') && Number(nb.value) ) ? Math.round(+nb.value) : '请输入数字';
+                } else {
+                    result.innerHTML = '请选择要转换的数字';
+                }
+            }
+            buttons[5].onclick = rN;
+
+            function maxN(){
+                if ((na.value !== '') && (nb.value !== '') && +na.value && +nb.value){
+                    result.innerHTML = Math.max(+na.value, +nb.value);
+                } else {
+                    result.innerHTML = '请输入数字';
+                }
+            }
+            buttons[6].onclick = maxN;
+
+            function minN(){
+                if ((na.value !== '') && (nb.value !== '') && +na.value && +nb.value){
+                    result.innerHTML = Math.min(+na.value, +nb.value);
+                } else {
+                    result.innerHTML = '请输入数字';
+                }
+            }
+            buttons[7].onclick = minN;
+
+            //--------------------------task-1-end---------------------------------------------------
+            var result2 = document.getElementById('result2');
+            var ra2 = document.getElementById('radio-a2');
+            var rb2 = document.getElementById('radio-b2');
+            var na2 = document.getElementById('num-a2');
+            var nb2 = document.getElementById('num-b2');
+            var sa = document.getElementById('str-a');
+            var sb = document.getElementById('str-b');
+            var buttons2 = document.querySelectorAll('#task2 > button');
+
+            function exlen(){
+                if (ra2.checked){
+                    result2.innerHTML = (typeof sa.value === 'string') ? sa.value.length : '输入类型不为字符串，错误';
+                } else if (rb2.checked){
+                    result2.innerHTML = (typeof sb.value === 'string') ? sb.value.length : '输入类型不为字符串，错误';
+                } else {
+                    result2.innerHTML = '请选择A或B';
+                }
+            }
+            buttons2[0].onclick = exlen;
+
+            function get3(){
+                if (ra2.checked){
+                    result2.innerHTML = (typeof sa.value === 'string') && sa.value[2] || '请输入超过3个字符的内容';
+                } else if (rb2.checked){
+                    result2.innerHTML = (typeof sb.value === 'string') && sb.value[2] || '请输入超过3个字符的内容';
+                } else {
+                    result2.innerHTML = '请选择A或B';
+                }
+            }
+            buttons2[1].onclick = get3;
+
+            function toget(){
+                var temp1 = (typeof sa.value === 'string') ? sa.value : '输入类型不为字符串，错误';
+                var temp2 = (typeof sb.value === 'string') ? sb.value : '输入类型不为字符串，错误';
+                result2.innerHTML = temp1 + temp2;
+            }
+            buttons2[2].onclick = toget;
+            
+
+            function exin(){
+                var temp1 = (typeof sa.value === 'string') ? sa.value : '输入类型不为字符串，错误';
+                var temp2 = (typeof sb.value === 'string') ? sb.value : '输入类型不为字符串，错误';
+                result2.innerHTML = (temp1 === '' || temp2 === '' || temp1.indexOf(temp2) < 0) ? 'A中不包含B中的内容' : temp1.indexOf(temp2);
+            }
+            buttons2[3].onclick = exin;
+
+            function exlin(){
+                var temp1 = (typeof sa.value === 'string') ? sa.value : '输入类型不为字符串，错误';
+                var temp2 = (typeof sb.value === 'string') ? sb.value : '输入类型不为字符串，错误';
+                result2.innerHTML = (temp1 === '' || temp2 === '' || temp1.lastIndexOf(temp2) < 0) ? 'A中不包含B中的内容' : temp1.lastIndexOf(temp2);
+            }
+            buttons2[4].onclick = exlin;
+
+            function slis(){
+                if (ra2.checked){
+                    result2.innerHTML = ((typeof sa.value === 'string') && (na2.value !== '') && (nb2.value !== '') && (na2.value < nb2.value)) ? sa.value.slice(+na2.value, +nb2.value) : '请检测输入的内容是否为正确，数字A，B应为数字不为空，数字A应小于B';
+                } else if (rb2.checked){
+                    result2.innerHTML = ((typeof sb.value === 'string') && (na2.value !== '') && (nb2.value !== '') && (na2.value < nb2.value)) ? sb.value.slice(+na2.value, +nb2.value) : '请检测输入的内容是否为正确，数字A，B应为数字不为空，数字A应小于B';
+                } else {
+                    result2.innerHTML = '请选择A或B';
+                }
+            }
+            buttons2[5].onclick = slis;
+            
+            function checkr(){
+                if (ra2.checked){
+                    var t1 = (sa.scrollHeight / parseFloat(window.getComputedStyle(sa).lineHeight)); 
+                    console.log(window.getComputedStyle(sa).lineHeight);
+                    result2.innerHTML = (typeof sa.value === 'string') ? sa.value.split('\n').length : '输入类型不为字符串，错误';
+                } else if (rb2.checked){
+                    result2.innerHTML = (typeof sb.value === 'string') ? sb.value.split('\n').length : '输入类型不为字符串，错误';
+                } else {
+                    result2.innerHTML = '请选择A或B';
+                }
+            }
+            buttons2[6].onclick = checkr;
+            
+            function subs(){
+                if (ra2.checked){
+                    result2.innerHTML = ((typeof sa.value === 'string') && (na2.value !== '') && (nb2.value !== '')) ? sa.value.substr(+na2.value, +nb2.value) : '请检测输入的内容是否为正确，数字A，B应为数字不为空';
+                } else if (rb2.checked){
+                    result2.innerHTML = ((typeof sb.value === 'string') && (na2.value !== '') && (nb2.value !== '')) ? sb.value.substr(+na2.value, +nb2.value) : '请检测输入的内容是否为正确，数字A，B应为数字不为空';
+                } else {
+                    result2.innerHTML = '请选择A或B';
+                }
+            }
+            buttons2[7].onclick = subs;
+
+            function uppers(){
+                if (ra2.checked){
+                    result2.innerHTML = (typeof sa.value === 'string') ? sa.value.toUpperCase() : '输入类型不为字符串，错误';
+                } else if (rb2.checked){
+                    result2.innerHTML = (typeof sb.value === 'string') ? sb.value.toUpperCase() : '输入类型不为字符串，错误';
+                } else {
+                    result2.innerHTML = '请选择A或B';
+                }
+            }
+            buttons2[8].onclick = uppers;
+
+            function lows(){
+                if (ra2.checked){
+                    result2.innerHTML = (typeof sa.value === 'string') ? sa.value.toLowerCase() : '输入类型不为字符串，错误';
+                } else if (rb2.checked){
+                    result2.innerHTML = (typeof sb.value === 'string') ? sb.value.toLowerCase() : '输入类型不为字符串，错误';
+                } else {
+                    result2.innerHTML = '请选择A或B';
+                }
+            }
+            buttons2[9].onclick = lows;
+
+            function dhspace(){
+                if (ra2.checked){
+                    result2.innerHTML = (typeof sa.value === 'string') ? sa.value.split(' ').join('') : '输入类型不为字符串，错误';
+                } else if (rb2.checked){
+                    result2.innerHTML = (typeof sb.value === 'string') ? sb.value.split(' ').join('') : '输入类型不为字符串，错误';
+                } else {
+                    result2.innerHTML = '请选择A或B';
+                }
+            }
+            buttons2[10].onclick = dhspace;
+
+            function exchs(){
+                if (ra2.checked){
+                    sa.value = (typeof sb.value === 'string') ? sb.value : '输入类型不为字符串，错误';
+                }else if (rb2.checked){
+                    sb.value = (typeof sa.value === 'string') ? sa.value : '输入类型不为字符串，错误';
+                } else {
+                    result2.innerHTML = '请选择A或B';
+                }
+            }
+            buttons2[11].onclick = exchs;
+            //----------------------------task-2-end------------------------------------------------------
+
+            /*
+            实现一个字符串头尾去除空格的函数
+            注意需要去除的空格，包括全角、半角空格
+            暂时不需要学习和使用正则表达式的方式
+            */
+            function diyTrim(str) {
+                 /*var result = "";
+                var i, j, t1;
+               
+                for (i = 0; (i < str.length && (str[i] === ' ' || str[i] === '　')); i++){}
+                for (j = str.length - 1; ( j >= 0 && (str[j] === ' ' || str[j] === '　')); j-- ){}
+
+                return result = str.slice(i, j + 1); */
+                return result = str.trim();
+            }
+
+
+            // 测试用例
+            console.log(diyTrim(' a f b    ')); // ->a f b
+            console.log(diyTrim('    ffdaf    ')); // ->ffdaf
+            console.log(diyTrim('1    ')); // ->1
+            console.log(diyTrim('　　f')); // ->f
+            console.log(diyTrim('  　  a f b 　　 ')); // ->a f b
+            console.log(diyTrim(' ')); // ->
+            console.log(diyTrim('　')); // ->
+            console.log(diyTrim('')); // ->
+
+            //----------------------------task-3-end------------------------------------------------------------
+            /*
+            去掉字符串str中，连续重复的地方
+            */
+            function removeRepetition(str) {
+                var result = "";
+                var i, j;
+                for (i = 0; str.length > i; i++){
+                    if (str[i] !== str[i + 1]){
+                        result += str[i];
+                    }
+                }
+                return result;
+            }
+
+            // 测试用例
+            console.log(removeRepetition("aaa")); // ->a
+            console.log(removeRepetition("abbba")); // ->aba
+            console.log(removeRepetition("aabbaabb")); // ->abab
+            console.log(removeRepetition("")); // ->
+            console.log(removeRepetition("abc")); // ->abc
+
+
+
+        </script>
+    </body>
+</html>
