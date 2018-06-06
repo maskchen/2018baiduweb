@@ -110,6 +110,8 @@ function getT2(x){
     var h = x.getHours();
     var m = x.getMinutes();
     var s = x.getSeconds();
+    m = exam(m);
+    s = exam(s);
     var temp = ':' + m + ':' + s;
 
     if(h > 12){
