@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day28</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="renderer" content="webkit"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href=""/>
+        <style type="text/css">
+            .hide {
+                display: none;
+            }
+
+            .email-sug {
+                width: 159px;
+                padding: 0;
+                margin: 0;
+                border: 1px solid #000;
+                list-style: none;
+            }
+
+            .email-sug li {
+                padding: 0 5px;
+            }
+
+            .email-sug li:hover {
+                background: rgb(125, 195, 228);
+                cursor: pointer;
+            }
+
+            .chosen {
+                background: rgb(202, 54, 98);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <input id="email-input" type="text" autofocus>
+            <ul id="email-sug-wrapper" class="email-sug hide"></ul>
+        </div>
+
+        <script src="task2.js"></script>
+    </body>
+</html>
