@@ -5,42 +5,61 @@
     <title>IFE ECMAScript</title>
 </head>
 <body>        
-    <input id="first-number" type="number" value="0" placeholder="第一个数字">
-    <input id="second-number" type="number" value="0" placeholder="第二个数字">
+    <input id="first-number" type="text"  placeholder="第一个数字">
+    <input id="second-number" type="text"  placeholder="第二个数字">
     <button id="add-btn">加</button>
     <button id="minus-btn">减</button>
     <button id="times-btn">乘</button>
     <button id="divide-btn">除</button>
     <p id="result">运算结果</p>
     <script>
-        
+        var n1, n2, res;
+
+        function isNum() {
+            n1 = document.getElementById("first-number").value;
+            n2 = document.getElementById("second-number").value;
+
+            if (n1.match(/^\d+\.?\d*$/) !== null && n2.match(/^\d+\.?\d*$/) !== null) {
+                n1 = Number(n1);
+                n2 = Number(n2);
+                return true;
+            } else {
+                document.getElementById("result").innerHTML = '请输入正确的数字';
+                return false;
+            }
+        }
 
         document.getElementById("add-btn").onclick = function (){
-            var n1 = document.getElementById("first-number").value;
-            var n2 = document.getElementById("second-number").value;
-            var res = parseFloat(n1) + parseFloat(n2);
-            document.getElementById("result").innerHTML = res;
+            if (isNum()){
+                res = n1 + n2;            
+                document.getElementById("result").innerHTML = res;
+            }
+            
         }
 
         document.getElementById("minus-btn").onclick = function (){
-            var n1 = document.getElementById("first-number").value;
-            var n2 = document.getElementById("second-number").value;
-            var res = n1 - n2;
-            document.getElementById("result").innerHTML = res;
+            if (isNum()){
+                res = n1 - n2;
+                document.getElementById("result").innerHTML = res;
+            }
         }
 
         document.getElementById("times-btn").onclick = function (){
-            var n1 = document.getElementById("first-number").value;
-            var n2 = document.getElementById("second-number").value;
-            var res = n1 * n2;
-            document.getElementById("result").innerHTML = res;
+            if (isNum()){
+                res = n1 * n2;
+                document.getElementById("result").innerHTML = res;
+            }
         }
 
         document.getElementById("divide-btn").onclick = function (){
-            var n1 = document.getElementById("first-number").value;
-            var n2 = document.getElementById("second-number").value;
-            var res = n1 / n2;
-            document.getElementById("result").innerHTML = res;
+            if (isNum()){
+                if (n2 === 0) {
+                    res = '分母不能为0';
+                } else {
+                    res = n1 / n2;
+                }            
+                document.getElementById("result").innerHTML = res;
+            }
         }
     </script>
 </body>
