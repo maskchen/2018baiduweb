@@ -3,15 +3,66 @@
 <head>
     <meta charset="UTF-8">    
     <title>IFE ECMAScript</title>
+    <style type="text/css">
+        table, th, td {
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>        
     <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
     <input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
     <button id="trans-btn">转化为二进制</button>
     <p id="result">运算结果</p>
+
+    <div id="table-wrapper">
+        <table></table>
+    </div>
     
     <script>
 
+function dec2bin(decNumber) {
+    var num = decNumber;
+    var result, quo, i;
+    var keep = [];
+    var bnum = document.getElementById('bin-bit').value;
+
+    if ((!Number(num) && num !== '0') || (!Number(bnum) && bnum !== '0') || num < 0) {
+        document.getElementById('result').innerHTML = '输入一个十进制非负整数';
+        return;
+    }
+
+        do {
+            quo = num % 2;
+            num = num >> 1;
+            keep.unshift(quo);
+        } while (num > 0);
+
+        if (keep.length <= +bnum) {
+            var temp = bnum - keep.length;
+            for (i = 0; i < temp; i++) {
+                keep.unshift('0');
+            }
+            
+        } else {
+            console.log('bin-bit位数小于结果位数')
+        }
+
+        result = keep.join('');
+        document.getElementById('result').textContent = result;
+
+}
+
+function isNum() {
+    
+}
+
+/*版本1.0的编码
 function dec2bin(decNumber) {
     var num = parseInt(decNumber);
     var renum, quo, i;
@@ -55,6 +106,7 @@ function dec2bin(decNumber) {
     
     // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
 }
+*/
 
 document.getElementById('trans-btn').onclick = function (){
     dec2bin(document.getElementById('dec-number').value);
@@ -68,7 +120,7 @@ document.getElementById('trans-btn').onclick = function (){
 var j, getto;
 var getto = '';
 for (j=1; j < 101; j++){
-    if ((j % 3) === 0){
+    if ((j % 3) === 0 || (j.toString().indexOf('3') >= 0)){
         getto += 'PA,';
     }
     else {
@@ -79,13 +131,31 @@ console.log(getto);
 
 //----------------------九九乘法表-------------------------------
 
+var table = document.getElementById('table-wrapper').firstElementChild;
+var i;
+
+for (i = 1; i<= 9; i++) {
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    td.textContent = i;
+    tr.append(td);
+
+    for (var j = 1; j <= i; j++) {
+        var td2 = document.createElement('td');
+        td2.textContent =  i + '*' + j + '=' + (i * j);
+        tr.append(td2);
+    }
+    table.append(tr);
+};
+
+/*最低要求
 var n, m, t;
 for (n = 1; n <= 9; n++){
-    for (m = 1; m <= 9; m++){
+    for (m = 1; m <= n; m++){
         console.log(n + '*' + m + '=' + (n * m))
     }
 }
-
+*/
 
     </script>
 </body>
