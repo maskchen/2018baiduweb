@@ -86,7 +86,7 @@
 
         <script>
             function textInput(e){
-                e.preventDefault()
+                e.preventDefault();
                 var a = document.getElementById('name').value;
                 console.log(a);
             }
@@ -104,7 +104,17 @@
             a.onkeyup = textInput2;
 
             //--------------task1-end-----------------------
+
+            function showSelect() {
+                if (this.checked) {
+                    var temp = document.getElementById(this.id + '-select');
+                    var temp2 = document.querySelectorAll('select:not(#' + this.id + '-select)');
+                    temp.classList.add('show');
+                    temp2[0].classList.remove('show');
+                }
+            }
             
+            /*版本1.0  ---一开始过于狭隘，没考虑如果一旦数量多起来怎么办
             function showSelect(){
                 var c = document.getElementById('school');
                 var d = document.getElementById('company');
@@ -119,6 +129,7 @@
                     e.classList.remove('show');
                 }
             }
+            */
 
             document.getElementById('school').onclick = showSelect;
             document.getElementById('company').onclick = showSelect;
@@ -126,10 +137,12 @@
 
             //-----------------task2-end-------------------------------
             
-            document.querySelector('.palette').onclick = function (e){
-                var ccolor = e.target.style.backgroundColor;
+            document.querySelector('.palette').onclick = function (ev){
+                if (ev.target.nodeName !== 'LI') return;//注意，记得判断一下是否点击在li元素上
+
+                var ccolor = ev.target.style.backgroundColor;
                 var obp = document.querySelector('.color-picker');
-                obp.innerHTML = ccolor;
+                obp.textContent = ccolor;
                 obp.style.backgroundColor = ccolor;
             }
 
@@ -137,7 +150,57 @@
             //-------------------task3-end--------------------------------------
 
             document.getElementById('fade-btn').onclick = toInvisible;
+            
+            function toInvisible() {
+                var g = document.getElementById('fade-obj');
+                var h = document.getElementById('fade-btn');
+                var op = window.getComputedStyle(g).opacity - 0;  //注意该数加法时字符串和数字的区别
+                var step = op > 0 ? -0.1 : 0.1; //优化点
 
+                var countN = setInterval( function () {
+                    h.disabled = true;
+                    op = op + step;
+                    g.style.opacity = op;
+
+                    if (g.style.opacity <= 0 || g.style.opacity >= 1) {
+                        h.disabled = false;
+                        h.innerHTML = (step === -0.1) ? '淡入' : '淡出'; //优化点
+                        clearInterval(countN);
+                    }
+                }, 100);
+            }
+
+            
+            /*-----------版本2.0 
+            function toInvisible() {
+                var g = document.getElementById('fade-obj');
+                var h = document.getElementById('fade-btn');
+                var op = window.getComputedStyle(g).opacity - 0;  //注意该数加法时字符串和数字的区别
+                var flag = op > 0 ? true : false;
+
+                var countN = setInterval( function () {
+                    h.disabled = true;
+                    if (flag) {
+                        op -= 0.1;
+                        g.style.opacity = op;
+                        if (g.style.opacity <= 0) {
+                            h.disabled = false;
+                            h.innerHTML = '淡入';
+                            clearInterval(countN);
+                        }
+                    } else {
+                        op += 0.1;
+                        g.style.opacity = op;
+                        if (g.style.opacity >= 1) {
+                            h.disabled = false;
+                            h.innerHTML = '淡出';
+                            clearInterval(countN);
+                        }
+                    }
+                }, 300);
+            }
+
+            -----------版本1.0 
             function toInvisible(){
                 var g = document.getElementById('fade-obj');
                 var h = document.getElementById('fade-btn');
@@ -148,7 +211,7 @@
                     var t1 = setInterval(function (){
                         h.disabled = true;
                         num1 -= 0.1;
-                        g.style.opacity = '' + num1;
+                        g.style.opacity = num1;
                         if (num1 <= 0){
                             h.disabled = false;
                             h.innerHTML = '淡入';
@@ -159,7 +222,7 @@
                     var t2 = setInterval(function (){
                         h.disabled = true;
                         num2 += 0.1;
-                        g.style.opacity = '' + num2;
+                        g.style.opacity = num2;
                         if (num2 >= 1){
                             h.disabled = false;
                             h.innerHTML = '淡出';
@@ -168,8 +231,24 @@
                     }, 300);
                 } 
             }
+            */
 
             //--------------------task4-end------------------------------------
+
+            var z = -480;
+            var framep = document.getElementById('fimg');
+            framep.onload = setInterval(function (){
+                var x = framep.style.backgroundPositionY;
+                x = parseInt(x) + z;
+                framep.style.backgroundPositionY = x + 'px';
+                
+                if (x === -7680 || x === 0){
+                    z = -z;
+                }
+                
+            }, 100)
+
+            /* --------------版本1.0
             var z = -480;
             var framep = document.getElementById('fimg');
             framep.onload = setInterval(function (){
@@ -178,11 +257,13 @@
                 framep.style.backgroundPositionY = y + 'px';
                 if (y === -7680){
                     z = 480;
-                } else if (y === 0){
+                }
+                
+                if (y === 0){
                     z = -480;
                 }
             }, 100)
-
+            */
             
             </script>
     </body>
