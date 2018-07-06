@@ -11,29 +11,18 @@ console.log(arr);
 
 
 var arr2 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+
 arr2.sort(function (a, b){
     var ta = a.toLowerCase();
     var tb = b.toLowerCase();
-    if (ta > tb){
-        return 1;
-    } else if (ta < tb){
-        return -1;
-    } else {
-        return 0;
-    }
+    return ta > tb;
 })
 console.log(arr2);
 
 arr2.sort(function (a, b){
     var ta = a.toLowerCase();
     var tb = b.toLowerCase();
-    if (ta > tb){
-        return -1;
-    } else if (ta < tb){
-        return 1;
-    } else {
-        return 0;
-    }
+    return ta < tb;
 })
 console.log(arr2);
 

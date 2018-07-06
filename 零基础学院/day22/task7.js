@@ -19,16 +19,16 @@ var scoreObject = {
 function ota(obj){
     var arr = [];
         for (var i in obj){
+            if (!obj.hasOwnProperty(i)) return;
             var temp = [];
-            if (obj.hasOwnProperty(i)){
-                temp.push(obj[i]);
+                temp.push(i);
 
                 for (var j in obj[i]){
+                    if (!obj[i].hasOwnProperty(j)) return;
                     temp.push(obj[i][j]);
                 }
 
-                arr.push(temp);
-            }
+            arr.push(temp);
             
         }
 
@@ -50,6 +50,82 @@ var menuArr = [
     [8, "Area2-2-1", 6],
 ];
 
+function ato(arr) {
+    var menuObject = {};
+    var tempObject;
+
+    for (var i = arr.length - 1; i >= 0; i--) {
+        var index = arr[i][0];
+        var name = arr[i][1];
+        var upper = arr[i][2];
+
+        if (upper > 0) {
+            if (menuObject[upper]) {
+                menuObject[upper].subMenu[index] = {
+                   'name': name
+                }
+            } else {
+
+                if (menuObject[index]) {
+                    menuObject[index].name = name;
+                    tempObject = menuObject[index];
+                    delete menuObject[index];
+                } else {
+                    tempObject = {
+                        'name': name
+                    }
+                }
+
+                menuObject[upper] = {
+                    'subMenu': {
+                        [index]: tempObject
+                    }
+                }
+            }
+
+        } else {
+
+            menuObject[index].name = name;
+        }
+    }
+
+    return menuObject;
+}
+
+
+/*version2.0
+function ato(arr){
+    var menuObject = {};
+    arr.forEach(function (el){
+        if (el[2] === -1) {
+            menuObject[el[0]] = {};
+            menuObject[el[0]].name = el[1];
+        } else {
+            var targetO = fpo(el[2], menuObject);
+            targetO.subMenu = targetO.subMenu ? targetO.subMenu : {};
+            targetO.subMenu[el[0]] = {};
+            targetO.subMenu[el[0]][name] = el[1];
+        }
+
+    });
+
+    return menuObject;
+}
+
+function fpo(ponum, obj) {
+    if (!obj) return null;
+    for (var i in obj) {
+        if (ponum === +i) {  //小心对象的属性为字符串
+            return obj[i];
+        } else {
+            var temp = fpo(ponum, obj[i].subMenu);
+            if (temp) return temp;
+        }
+    }
+}
+*/
+
+/*version1.0
 var flag;
 var tempo;
 
@@ -92,6 +168,7 @@ function fpo(num,obj){
         }
     }        
 }
+*/
 
 console.log(ato(menuArr));
 

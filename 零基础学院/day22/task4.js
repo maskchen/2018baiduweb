@@ -58,6 +58,22 @@ var tree = {
 
 // 假设id和name均不会重复，根据输入name找到对应的id
 function findIdByName(name) {
+    function cycle(point) {
+        if (!point) return null;
+        if (point.name === name) {
+            return point.id;
+        } else {
+            var temp = cycle(point.left);  //关键点在这行和下行的return值
+            return temp !== null? temp : cycle(point.right);
+        }
+    }
+
+    return cycle(tree);
+}
+
+
+/*version 1.0 把问题想得太复杂了
+function findIdByName(name) {
     var temp;
     var flag = true;
     function cycleId(obj){
@@ -78,9 +94,26 @@ function findIdByName(name) {
     return temp;
 
 }
+*/
 
 
 // 假设id和name均不会重复，根据输入id找到对应的name
+
+function findNameById(id) {
+    function cycle(point) {
+        if (!point) return null;
+        if (point.id === id) {
+            return point.name;
+        } else {
+            var temp = cycle(point.left);
+            return temp !== null? temp : cycle(point.right);
+        }
+    }
+
+    return cycle(tree);
+}
+
+/*version 1.0 把问题想得太复杂了
 function findNameById(id) {
     var temp;
     var flag = true;
@@ -101,6 +134,7 @@ function findNameById(id) {
     return temp;
     
 }
+*/
 
 
 // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中

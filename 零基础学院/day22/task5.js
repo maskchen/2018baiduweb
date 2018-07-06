@@ -7,19 +7,20 @@ var frontq = document.getElementById('font-btn');
 var emq = document.getElementById('empty-btn');
 
 function addq(){
-    if (addv.value !== ''){
+    if (addv.value){
         queue.unshift(addv.value);
         pcont.innerHTML = queue.join('-&gt;')
     }
-    
 }
 
 function delq(){
+    if (!queue.length) return pcont.innerHTML = '队列为空';
     queue.pop();
     pcont.innerHTML = queue.join('-&gt;')
 }
 
 function printf(){
+    if (!queue.length) return pcont.innerHTML = '队列为空';
     pcont.innerHTML = queue[queue.length - 1];
 }
 
@@ -39,7 +40,7 @@ emq.onclick = askq;
 //--------------------task-5-2--------------------------------
 
 function addq2(){
-    if (addv.value !== ''){
+    if (addv.value){
         queue.push(addv.value);
         pcont.innerHTML = queue.join('&lt;-')
     }
@@ -47,11 +48,13 @@ function addq2(){
 }
 
 function delq2(){
+    if (!queue.length) return pcont.innerHTML = '队列为空';
     queue.shift();
     pcont.innerHTML = queue.join('&lt;-')
 }
 
 function printf2(){
+    if (!queue.length) return pcont.innerHTML = '队列为空';
     pcont.innerHTML = queue[0];
 }
 
@@ -75,11 +78,13 @@ function enters(){
 }
 
 function outs(){
+    if (!stack.length) return scont.innerHTML = '栈为空';
     stack.pop();
     scont.innerHTML = stack.join('-&gt;');
 }
 
 function psf(){
+    if (!stack.length) return scont.innerHTML = '栈为空';
     scont.innerHTML = stack[stack.length - 1];
 }
 
@@ -107,10 +112,12 @@ function enters2(){
 }
 
 function outs2(){
+    if (!stack.length) return scont.innerHTML = '栈为空';
     stack.shift();
     scont.innerHTML = stack.join('&lt;-');
 }
 
 function psf2(){
+    if (!stack.length) return scont.innerHTML = '栈为空';
     scont.innerHTML = stack[0];
 }
