@@ -30,11 +30,7 @@ function week(x){
         6 : '星期六'
     }
 
-    if (x <= 6 && x >= 0){
-        return obj[x];
-    } else {
-        return '输入值错误，请输入0~6的值';
-    }
+    return obj[x];
 }
 
 function getT(t){
@@ -43,10 +39,9 @@ function getT(t){
 
 function reslut(y, m, d, w, tc){
     var p = document.getElementById('clock-t');
-    p.innerHTML = y + '年' + m + '月' + d + '日' + w + tc; 
+    p.innerHTML = y + '年 ' + m + '月 ' + d + '日 ' + w + ' ' + tc; 
 }
 
-var timer = setInterval(curT, 1000);
 
 //-----------------------task-2-part2--------------------------------------------------
 
@@ -72,11 +67,7 @@ function week2(x){
         6 : 'Saturday'
     }
 
-    if (x <= 6 && x >= 0){
-        return obj[x];
-    } else {
-        return '输入值错误，请输入0~6的值';
-    }
+    return obj[x];
 }
 
 /*
@@ -116,15 +107,9 @@ function getT2(x){
 
     if(h > 12){
         h = h - 12;
-        if (h < 10){
-            h = '0' + h;
-        }
-        temp = h + temp + ' PM';        
+        temp = exam(h) + temp + ' PM';        
     } else {
-        if (h < 10){
-            h = '0' + h;
-        }
-        temp = h + temp + ' AM';
+        temp = exam(h) + temp + ' AM';
     }
 
     return temp;
@@ -132,7 +117,10 @@ function getT2(x){
 
 function reslut2(y, m, d, w, tc){
     var p = document.getElementById('clock-t2');
-    p.innerHTML = y + '-' + m + '-' + d + ' ' + w + tc; 
+    p.innerHTML = y + '-' + m + '-' + d + ' ' + w + ' ' + ' ' + tc; 
 }
 
-var timer2 = setInterval(curT2, 1000);
+var timer = setInterval(function () {
+    curT();
+    curT2();
+}, 1000);

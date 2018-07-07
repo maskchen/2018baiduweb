@@ -83,14 +83,16 @@ function countR(t1, t2){
     var nabs = Math.abs(t1 - t2);
     var temp = nabs % (3600 * 24 * 1000);
     var day = Math.floor(nabs / (3600 * 24 * 1000));
-    var temp2 = temp % (3600 * 1000);
     var hours = Math.floor(temp / (3600 * 1000));
-    temp = temp2 % (60 * 1000);
-    var mins = Math.floor(temp2 / (60 * 1000));
+    temp = temp % (3600 * 1000);   
+    var mins = Math.floor(temp / (60 * 1000));
+    temp = temp % (60 * 1000);
     var secs = Math.floor(temp / 1000);
 
     return (day + ' 天 ' + hours + ' 小时 ' + mins + ' 分 ' + secs + ' 秒');
 }
+
+//-----------------接下来为各select选项绑定事件-------------------------------------
 
 var i;
 var sel = document.querySelectorAll('select');
