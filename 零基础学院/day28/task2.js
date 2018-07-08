@@ -60,17 +60,18 @@ function ulSw() {
 
 function hideul() {
     ul.classList.add('hide');
+    inputc.removeEventListener('keydown', keybC);
 }
 
 function showul() {
     ul.classList.remove('hide');
+    inputc.addEventListener('keydown', keybC);
 }
 
 function chosen(e){
     if (e.target.nodeName === 'LI'){
         var target = e.target;
-        var nodv = target.textContent;
-        inputc.value = nodv;
+        inputc.value = target.innerHTML;
         hideul();
         inputc.focus();
     }
@@ -83,12 +84,15 @@ inputc.addEventListener('input', function() {
 
 ul.addEventListener('click', chosen);
 
+document.documentElement.addEventListener('click', function (ev) {
+    if (ev.target.nodeName !== 'LI') hideul();
+});
+
 
 //--------------------------part2------------------------------------------------
 
 var nowSIndex = 0;
 
-inputc.addEventListener('keyup', keybC);
 
 function keybC(e){
     var lis = document.querySelectorAll('#email-sug-wrapper li');

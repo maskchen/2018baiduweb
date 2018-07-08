@@ -4,8 +4,6 @@ var inputc = document.getElementById('email-input');
 var ul = document.getElementById('email-sug-wrapper');
 var div = document.getElementById('wrapper');
 
-
-
 function getV() {
     return inputc.value.trim();    
 }
@@ -21,7 +19,7 @@ function creatL() {
         va = va.slice(0, va.indexOf('@'));    
     }
 
-    postfixList.forEach(function (el){;
+    postfixList.forEach(function (el){
         if (el.indexOf(vab) === 0){
             temp.push(el);
         } 
@@ -46,7 +44,7 @@ function setc() {
     ul.innerHTML = '';
     var lis = creatL();
     ul.appendChild(lis);
-    document.querySelector('#email-sug-wrapper li').classList.add('chosen')
+    document.querySelector('#email-sug-wrapper li').classList.add('chosen');
 }
 
 function ulSw() {
@@ -84,8 +82,8 @@ ul.addEventListener('click', chosen);
 
 
 //--------------------------part2------------------------------------------------
-/*
-inputc.addEventListener('keyup', keybC);
+
+inputc.addEventListener('keydown', keybC);
 
 function keybC(e){
     var curL = document.querySelector('.chosen');
@@ -121,4 +119,3 @@ function keybC(e){
     }
 
 }
-*/
