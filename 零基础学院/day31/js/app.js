@@ -37,11 +37,27 @@ var sourceData = [{
 }];
 
 
-
+var regionWrapper = document.getElementById('region-radio-wrapper')
+var productWrapper= document.getElementById('product-radio-wrapper')
 var table = document.getElementById('table-wrapper').firstElementChild;
 var checkboxes = document.querySelectorAll('[type = "checkbox"]');
 var matcharr, flag, countI;
 
+regionWrapper.onclick = function (ev) {
+    if (ev.target.type !== 'checkbox') return; 
+    checkbox(('[name=' + ev.target.name + ']'), ev);
+    selData();
+    createTab();
+};
+
+productWrapper.onclick = function (ev) {
+    if (ev.target.type !== 'checkbox') return; 
+    checkbox(('[name=' + ev.target.name + ']'), ev);
+    selData();
+    createTab();
+};
+
+/*
 checkboxes.forEach(function (el) {
     el.onchange = function (e) {
         checkbox(('[name=' + e.target.name + ']'), e);
@@ -49,3 +65,4 @@ checkboxes.forEach(function (el) {
         createTab();
     };
 });
+*/

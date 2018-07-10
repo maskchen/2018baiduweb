@@ -2,26 +2,39 @@ function createTab() {
     table.textContent = '';
     createTh();
     sortData();
-}
 
-var regionFCol;
+/*   原未分合并列代码
+    matcharr.forEach(function (el) {
+        var tr = document.createElement('tr');
+        var temparr = el.sale.slice();
+        temparr.unshift(el.product, el.region);
+        temparr.forEach(function (el2) {
+            var td = document.createElement('td');
+            td.textContent = el2;
+            tr.append(td);
+        });
+        table.append(tr);
+    });  
+    
+*/
+}
 
 function createTh() {
     var temparr;
     var provalues = document.querySelectorAll('[name="product"]:not([value="all"]):checked');
     var regvalues = document.querySelectorAll('[name="region"]:not([value="all"]):checked');
-    var length = document.querySelectorAll('[name="region"]:not([value="all"])').length;
-    regionFCol = null;
 
     if ((regvalues.length === 1) && (provalues.length !== 1)){
         temparr = ['地区','产品'];
-        flag = provalues.length  || length;
-        regionFCol = true; //优化点，不重复判断，把需要的值输出到全局；
+        flag = provalues.length;
     } else {
         temparr = ['产品','地区'];
-        flag = regvalues.length || length;
+        if (regvalues.length === 0) {
+            flag = document.querySelectorAll('[name="region"]:not([value="all"])').length;
+        } else {
+            flag = regvalues.length;
+        }
     }
-
     var i;
     var tr = document.createElement('tr')
     for (i = 1; i <= 12; i++) {
@@ -39,15 +52,18 @@ function createTh() {
 
 
 function sortData() {
+    var provalues = document.querySelectorAll('[name="product"]:not([value="all"]):checked');
+    var regvalues = document.querySelectorAll('[name="region"]:not([value="all"]):checked');
+    countI = flag;
 
-    matcharr.forEach(function (el, index) {
+    matcharr.forEach(function (el) {
         var tr = document.createElement('tr');
         var temp;
         
-        if (regionFCol) {
-            temp = switchData(el.region, el.product, index);
+        if ((regvalues.length === 1) && (provalues.length !== 1)) {
+            temp = switchData(el.region, el.product);
         } else {
-            temp = switchData(el.product, el.region, index);
+            temp = switchData(el.product, el.region);
         }
 
         tr.append(temp);
@@ -63,10 +79,10 @@ function sortData() {
     
 }
 
-function switchData(v1, v2, index) {
+function switchData(v1, v2) {
     var td, td2;
     var frag = document.createDocumentFragment();
-    if (index % flag === 0) {   //优化点，巧用数组键值和次列个数的余数运算来解决；                   
+    if (flag === countI) {                      //关键点在于数据输出的顺序和flag，countI的数判断；
         td = document.createElement('td');
         td.textContent = v1;
         td.rowSpan = flag;
@@ -76,6 +92,11 @@ function switchData(v1, v2, index) {
     td2 = document.createElement('td');
     td2.textContent = v2;
     frag.append(td2);
+
+    countI -= 1;
+    if (countI === 0) {
+        countI = flag;
+    }
 
     return frag;
 }
