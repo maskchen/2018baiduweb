@@ -3,7 +3,7 @@ var sjk, biao;
 
 x.onupgradeneeded = function (ev) {
     sjk = ev.target.result;
-    biao = sjk.createObjectStore('person', {keyPath: 'pin'}); 
+    biao = sjk.createObjectStore('person'); 
     
     console.log(sjk);
     console.log(biao);
