@@ -29,7 +29,7 @@ x.onsuccess = function () {
         console.log(e.error);
     }
 
-    var p = t.getAll();
+    var p = t.get(66);
     p.onsuccess = function () {
         console.log(p.result);
     }
