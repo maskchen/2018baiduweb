@@ -18,8 +18,9 @@ x.onsuccess = function () {
     t.add({'name': 're',
             'pin': 66
 });
+    console.log(x.result.transaction(['person']).objectStore('person'))
 
-    var p = t.get(66);
+    var p = t.getAll();
     p.onsuccess = function () {
         console.log(p.result);
     }
