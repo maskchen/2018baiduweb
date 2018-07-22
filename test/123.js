@@ -24,7 +24,7 @@ x.onsuccess = function () {
     }
 
     y.onerror = function () {
-        console,log('cuowu1');
+        console.log('cuowu1');
     }
 
     var p = t.getAll();
