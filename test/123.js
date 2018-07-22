@@ -20,7 +20,7 @@ x.onsuccess = function () {
 });
    
     y.onsuccess = function () {
-        console,log('ddd');
+        console.log('ddd');
     }
 
     y.onerror = function () {
@@ -33,7 +33,7 @@ x.onsuccess = function () {
     }
 
     p.onerror = function () {
-        console,log('cuowu2');
+        console.log('cuowu2');
     }
     
 }
