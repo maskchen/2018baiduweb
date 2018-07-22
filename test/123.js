@@ -12,11 +12,11 @@ x.onupgradeneeded = function (ev) {
 x.onsuccess = function () {
     var t = x.result.transaction(['person'], 'readwrite').objectStore('person');
     console.log(t);
-    var y = t.add({'pin': 33,
+    var y = t.put({'pin': 33,
         'name': 'wuyi'
             
 });
-    t.add({'pin': 66,
+    t.put({'pin': 66,
         'name': 're'
             
 });
@@ -25,8 +25,8 @@ x.onsuccess = function () {
         console.log('ddd');
     }
 
-    y.onerror = function () {
-        console.log('cuowu1');
+    y.onerror = function (e) {
+        console.log(e.error);
     }
 
     var p = t.getAll();
@@ -34,8 +34,8 @@ x.onsuccess = function () {
         console.log(p.result);
     }
 
-    p.onerror = function () {
-        console.log('cuowu2');
+    p.onerror = function (e) {
+        console.log(e.error);
     }
     
 }
