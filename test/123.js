@@ -18,7 +18,12 @@ x.onsuccess = function () {
     t.add({'name': 're',
             'pin': 66
 });
-    console.log(t);
+
+    var p = t.get(66);
+    p.onsuccess = function () {
+        console.log(p.result);
+    }
+    
 }
 
 
