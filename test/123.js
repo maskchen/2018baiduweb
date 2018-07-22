@@ -12,8 +12,12 @@ x.onupgradeneeded = function (ev) {
 x.onsuccess = function () {
     var t = x.result.transaction(['person'], 'readwrite').objectStore('person');
     console.log(t);
-    t.add({'name': 'wuyi'}, 2);
-    t.add({'name': 're'}, 3);
+    t.add({'name': 'wuyi',
+            'pin': 33
+});
+    t.add({'name': 're',
+            'pin': 66
+});
     console.log(t);
 }
 
