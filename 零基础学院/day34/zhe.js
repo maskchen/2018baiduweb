@@ -15,11 +15,22 @@ table.onmouseleave = function () {
 
     var allzhe = document.getElementById('allzhe');
     allzhe.style['opacity'] = 1;
+
+    //----------柱状图清除部分--------------
+    var group = document.getElementById('paintpart');
+    group.innerHTML = '';
+
+    var allzhu = document.getElementById('stickall');
+    allzhu.setAttribute('opacity', 1);
 };
 
 table.onmouseenter = function () {
     var allzhe = document.getElementById('allzhe');
     allzhe.style['opacity'] = 0; 
+
+    //----------柱状图部分--------------
+    var allzhu = document.getElementById('stickall');
+    allzhu.setAttribute('opacity', 0);
 };
 
 //---------折线图固定部分---------------------

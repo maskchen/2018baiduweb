@@ -13,7 +13,7 @@ function stick(data) {
     group.innerHTML = '';
 
     yText(group, ymax, 5);
-    showPillar(data, multi, group);
+    showPillar(data, multi, group, '#49729b');
 
     svg.appendChild(group);
 }
@@ -71,7 +71,7 @@ function yText(dom, num, rows) {
     dom.innerHTML += alltext;
 }
 
-function showPillar(data, multiple, dom) {
+function showPillar(data, multiple, dom, color) {
     var step = Math.floor(600 / 36);  //柱状主体为间隔的两倍
     var residue = 600 % 36;
     var i, y, rect;
@@ -80,7 +80,7 @@ function showPillar(data, multiple, dom) {
 
     for (i = 0; i < data.length; i++) {
         y = Math.floor(data[i] * multiple);
-        rect = pillar(x, y, step);
+        rect = pillar(x, y, step * 2, color);
         frag.appendChild(rect);
         x += step * 3;
     }
@@ -89,12 +89,56 @@ function showPillar(data, multiple, dom) {
 }
 
 
-function pillar(x, y, step) {
+function pillar(x, y, width, color) {
     var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     rect.setAttribute('x', x + '');
     rect.setAttribute('y', 450 - y + '');
-    rect.setAttribute('width', step * 2 + '');
+    rect.setAttribute('width', width + '');
     rect.setAttribute('height', y + '');
-    rect.setAttribute('fill', '#49729b');
+    rect.setAttribute('fill', color);
     return rect;
+}
+
+
+//-------------------选中的全部柱状图----------------------------------
+
+function stickAll(data) {
+    var svg = document.getElementById('zhu');
+    var ymax = verDiv(data);
+    var multi = 400 / ymax;
+
+    var group = document.getElementById('stickall');
+    if (!group) {
+        group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        group.setAttribute('id', 'stickall');
+    }
+    group.innerHTML = '';
+
+    yText(group, ymax, 5);
+    showAllPillars(data, multi, group);
+
+    svg.appendChild(group);
+}
+
+function showAllPillars(data, multiple, dom) {
+    var step = Math.floor(600 / 36);  //柱状主体为间隔的两倍
+    var residue = 600 % 36;
+    var i, y, rect, j, x, color;
+    
+    var frag = document.createDocumentFragment();
+
+    for (j = 0; j < data.length; j++) {
+        var arr = data[j].sale;
+        x = Math.floor(residue / 2) + 100 + j * (step * 2 / data.length);
+        color = lineColor[j];
+
+        for (i = 0; i < arr.length; i++) {
+            y = Math.floor(arr[i] * multiple);
+            rect = pillar(x, y, step * 2 / data.length, color);
+            frag.appendChild(rect);
+            x += step * 3;
+        }
+    }
+
+    dom.appendChild(frag);
 }

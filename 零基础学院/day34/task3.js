@@ -48,6 +48,7 @@ checkboxes.forEach(function (el) {
         selData();
         createTab();
         paintAllzhe(matcharr);
+        stickAll(matcharr);
     };
 });
 
