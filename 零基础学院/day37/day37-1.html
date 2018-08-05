@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <title>day37-1</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="renderer" content="webkit" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="day37-1.css" />
+    </head>
+
+    <body>
+        <div id="region-radio-wrapper">
+            <label>
+                <input type="checkbox" name="region" value="all"/> 全部地区
+            </label>
+            <label>
+                <input type="checkbox" name="region" value="华东"/> 华东
+            </label>
+            <label>
+                <input type="checkbox" name="region" value="华南"/> 华南
+            </label>
+            <label>
+                <input type="checkbox" name="region" value="华北"/> 华北
+            </label>
+        </div>
+
+        <div id="product-radio-wrapper">
+            <label>
+                <input type="checkbox" name="product" value="all"/> 全部产品
+            </label>
+            <label>
+                <input type="checkbox" name="product" value="手机"/> 手机
+            </label>
+            <label>
+                <input type="checkbox" name="product" value="笔记本"/> 笔记本
+            </label>
+            <label>
+                <input type="checkbox" name="product" value="智能音箱"/> 智能音箱
+            </label>
+        </div>
+
+        <div id="graphic-wrapper"></div>
+
+        <div>
+            <button type="button" id="savedata">保存</button>
+        </div>
+
+        <form id="table-wrapper">
+            <table></table>
+        </form>
+
+        <script src="task3.js"></script>
+        <script src="getdata.js"></script>
+        <script src="zhe.js"></script>
+        <script src="zhu.js"></script>
+    </body>
+</html>
