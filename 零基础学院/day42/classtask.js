@@ -1,8 +1,8 @@
 ;
 
 function Restaurant(obj) {
-    this.cash = obj.cash;
-    this.seats = obj.seats;
+    this.cash = obj.cash || 0;
+    this.seats = obj.seats || 0;
     this.staff = obj.staff || [];
 }
 
@@ -38,10 +38,10 @@ function Waiter(name, salary) {
 Waiter.prototype = Object.create(Clerk.prototype);
 Waiter.prototype.constructor = Waiter;
 Waiter.prototype.serve = function (orderlist) {
-    if (orderlist[1]) {
+    if (Array.isArray(orderlist)) {
         this.list = orderlist;
     } else {
-        this.list.shift();
+        console('上菜');
         //上菜,待后续需求
     }
 };
@@ -67,14 +67,14 @@ function Customer(id) {
 }
 
 Customer.prototype.order = function (dishName) {
-    if (!this.orderlist) this.orderlist = [];
+    if (!Array.isArray(orderlist)) this.orderlist = [];
         
     this.orderlist.push(dishname);
 };
 
 Customer.prototype.eat = function () {
-    if (this.list && this.list[1]) {
-        this.list.shift();
+    if (Array.isArray(orderlist) && this.orderlist[1]) {
+        this.orderlist.shift();
     } else {
         alert('你没菜，吃空气啊？')
     }
@@ -84,9 +84,9 @@ Customer.prototype.eat = function () {
 //-----------------我是分割线---------------------------------
 
 function Dish(name, cost, price) {
-    this.name = name;
-    this.cost = cost;
-    this.price = price;
+    this.name = name ;
+    this.cost = cost || 0;
+    this.price = price || 0;
 }
 
 
